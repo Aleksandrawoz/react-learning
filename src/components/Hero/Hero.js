@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import styles from './Hero.scss';
 import PropTypes from 'prop-types';
