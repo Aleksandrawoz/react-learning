@@ -18,13 +18,14 @@ class List extends React.Component {
     description: PropTypes.node,
     columns: PropTypes.array,
     image: PropTypes.string.isRequired,
+    addColumn: PropTypes.func,
     
   };
   static defaultProps = {
     description: settings.defaultListDescription,
   };
   render() {
-    const{title,image,description,columns} = this.props;
+    const{title,image,description,columns,addColumn} = this.props;
     return (
       <section className={styles.component}>
         <Hero 
@@ -38,7 +39,9 @@ class List extends React.Component {
           {columns.map(columnData => (
             <Column key={columnData.id} {...columnData} />
           ))}
-        </div><div className={styles.creator}><Creator text={settings.columnCreatorText} action={title => this.addColumn(title)} /></div>
+        </div><div className={styles.creator}>
+          <Creator text={settings.columnCreatorText} action={addColumn} />
+        </div>
       </section>
     );
   }
